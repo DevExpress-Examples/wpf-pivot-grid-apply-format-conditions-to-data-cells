@@ -7,8 +7,10 @@
 # How to apply format conditions to pivot grid data cells
 
 
-This example shows how to add format conditions to <a href="https://documentation.devexpress.com/#WPF/CustomDocument7228">WPF Pivot Grid Control</a>.<br>The Data Bar conditional formatting is applied to the 'Extended Price' measure and intersection of the 'Sales Person' and 'Quarter' fields. This condition formats data cells with a predefined orange gradient data bar. The condition was created in c# code.<br>The Top Bottom Rule conditional formatting is applied to the 'Quantity' measure and intersection of the 'Sales Person' and 'Quarter' fields. This condition formats data cells whose values are above average with green text and light green fill. The condition was created using the <a href="https://documentation.devexpress.devx/#WPF/CustomDocument114038/">Conditional Formatting Rules Manager</a>.<br>The Icon Set conditional formatting is applied to the 'Extended Price' measure and intersection of the 'Sales Person' and 'Year' fields. This condition displays a specific icon in a cell according to the range to which this cell value belongs. The condition was created using the Conditional Formatting Rules Manager.
+This example shows how to add format conditions to [WPF Pivot Grid Control](https://docs.devexpress.com/WPF/7228/controls-and-libraries/pivot-grid).
 
-<br/>
+The Data Bar conditional formatting is applied to the 'Extended Price' measure and intersection of the 'Sales Person' and 'Quarter' fields. This condition formats data cells with a predefined orange gradient data bar. The condition was created in c# code.
 
+The Top Bottom Rule conditional formatting is applied to the 'Quantity' measure and intersection of the 'Sales Person' and 'Quarter' fields. This condition formats data cells whose values are above average with green text and light green fill. The condition was created using the [Conditional Formatting Rules Manager](https://docs.devexpress.com/WPF/114038/controls-and-libraries/pivot-grid/data-analysis/conditional-formatting#conditional-formatting-rules-manager).
 
+The Icon Set conditional formatting is applied to the 'Extended Price' measure and intersection of the 'Sales Person' and 'Year' fields. This condition displays a specific icon in a cell according to the range to which this cell value belongs. The condition was created using the Conditional Formatting Rules Manager.
