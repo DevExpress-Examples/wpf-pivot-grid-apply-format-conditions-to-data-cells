@@ -3,75 +3,66 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-        xmlns:my="clr-namespace:WpfPivotGridConditionalFormatting.nwindDataSetTableAdapters" 
+        xmlns:adapters="clr-namespace:nwindDataSetTableAdapters" 
         xmlns:my1="clr-namespace:WpfPivotGridConditionalFormatting"
         dx:ThemeManager.Theme="Office2013LightGray" 
         Title="Pivot Grid Conditional Formatting" 
         Height="427" Width="755" >
     <Window.Resources>
-        <dx:TypedSimpleSource x:Key="TypedSimpleSource" 
-                              AdapterType="my:SalesPersonTableAdapter" 
-                              ContextType="my1:nwindDataSet" 
-                              Path="SalesPerson">
-            <dx:DesignDataManager.DesignData>
-                <dx:DesignDataSettings RowCount="5" />
-            </dx:DesignDataManager.DesignData>
-        </dx:TypedSimpleSource>
     </Window.Resources>
     <Grid>
         <dxpg:PivotGridControl Name="pivotGridControl1" 
-                               DataSource="{Binding Path=Data, Source={StaticResource TypedSimpleSource}}" 
-                               AllowConditionalFormattingMenu="True">
+                               AllowConditionalFormattingMenu="True"
+                               DataProcessingEngine="Optimized">
             <dxpg:PivotGridControl.FormatConditions>
-                <dxpg:IconSetFormatCondition ApplyToSpecificLevel="True" 
+                <dxpg:IconSetFormatCondition ApplyToSpecificLevel="true" 
                                              MeasureName="fieldExtendedPrice" 
-                                             RowName="fieldSalesPerson" ColumnName="fieldYear">
-                    <dxpg:IconSetFormatCondition.Format>
-                    <dx:IconSetFormat>
-                        <dx:IconSetElement Threshold="66.666666666666671" ThresholdComparisonType="GreaterOrEqual">
-                            <dx:IconSetElement.Icon>
-                                <BitmapImage UriCachePolicy="{x:Null}" 
-        UriSource="pack://application:,,,/DevExpress.Xpf.Core.v15.1;component/Core/ConditionalFormatting/Images/IconSets/Arrows3_1.png" />
-                            </dx:IconSetElement.Icon>
-                        </dx:IconSetElement>
-                        <dx:IconSetElement Threshold="33.333333333333336" ThresholdComparisonType="GreaterOrEqual">
-                            <dx:IconSetElement.Icon>
-                                <BitmapImage UriCachePolicy="{x:Null}" 
-         UriSource="pack://application:,,,/DevExpress.Xpf.Core.v15.1;component/Core/ConditionalFormatting/Images/IconSets/Arrows3_2.png" />
-                            </dx:IconSetElement.Icon>
-                        </dx:IconSetElement>
-                        <dx:IconSetElement Threshold="0" ThresholdComparisonType="GreaterOrEqual">
-                            <dx:IconSetElement.Icon>
-                                <BitmapImage UriCachePolicy="{x:Null}" 
-         UriSource="pack://application:,,,/DevExpress.Xpf.Core.v15.1;component/Core/ConditionalFormatting/Images/IconSets/Arrows3_3.png" />
-                            </dx:IconSetElement.Icon>
-                        </dx:IconSetElement>
-                        </dx:IconSetFormat>
-                    </dxpg:IconSetFormatCondition.Format>
-                </dxpg:IconSetFormatCondition>
-                <dxpg:TopBottomRuleFormatCondition ApplyToSpecificLevel="True" 
+                                             RowName="fieldSalesPerson" ColumnName="fieldYear" PredefinedFormatName="Arrows3ColoredIconSet"/>
+                <dxpg:TopBottomRuleFormatCondition ApplyToSpecificLevel="true" 
                                                    ColumnName="fieldQuarter" 
                                                    MeasureName="fieldQuantity" 
                                                    RowName="fieldSalesPerson" 
                                                    Rule="TopItems">
-                    <dxpg:TopBottomRuleFormatCondition.Format>
-                        <dx:Format Background="LightGreen" Foreground="Green" />
-                    </dxpg:TopBottomRuleFormatCondition.Format>
+                    <dx:Format Background="#FF90EE90" Foreground="#FF008000" />
                 </dxpg:TopBottomRuleFormatCondition>
             </dxpg:PivotGridControl.FormatConditions>
             <dxpg:PivotGridControl.Fields>
-                <dxpg:PivotGridField Area="RowArea" FieldName="Country" 
-                                     Name="fieldCountry" AreaIndex="0" />
-                <dxpg:PivotGridField Area="DataArea" FieldName="Extended Price" 
-                                     Name="fieldExtendedPrice" AreaIndex="0" />
-                <dxpg:PivotGridField Area="ColumnArea" Caption="Year" FieldName="OrderDate"
-                                     Name="fieldYear" GroupInterval="DateYear" AreaIndex="0" />
-                <dxpg:PivotGridField Area="ColumnArea" Caption="Quarter" FieldName="OrderDate" 
-                                     Name="fieldQuarter" GroupInterval="DateQuarter" AreaIndex="1" ValueFormat="Quarter {0}" />
-                <dxpg:PivotGridField Area="DataArea" FieldName="Quantity" 
-                                     Name="fieldQuantity" AreaIndex="1" />
-                <dxpg:PivotGridField Area="RowArea" FieldName="Sales Person" 
-                                     Name="fieldSalesPerson" AreaIndex="1" />
+                <dxpg:PivotGridField Area="RowArea"  
+                                     Name="fieldCountry" AreaIndex="0">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="Country"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Area="DataArea" 
+                                     Name="fieldExtendedPrice" AreaIndex="0">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="Extended Price"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Area="ColumnArea" Caption="Year" 
+                                     Name="fieldYear"  AreaIndex="0">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="OrderDate" GroupInterval="DateYear"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Area="ColumnArea" Caption="Quarter" 
+                                     Name="fieldQuarter" AreaIndex="1" >
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="OrderDate" GroupInterval="DateQuarter"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Area="DataArea" 
+                                     Name="fieldQuantity" AreaIndex="1">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="Quantity"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Area="RowArea"
+                                     Name="fieldSalesPerson" AreaIndex="1">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="Sales Person"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
             </dxpg:PivotGridControl.Fields>
         </dxpg:PivotGridControl>
     </Grid>

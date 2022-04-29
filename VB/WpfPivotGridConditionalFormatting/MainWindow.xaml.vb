@@ -1,6 +1,7 @@
 ﻿Imports System.Windows
 Imports System
 Imports DevExpress.Xpf.PivotGrid
+Imports nwindDataSetTableAdapters
 
 Namespace WpfPivotGridConditionalFormatting
     ''' <summary>
@@ -8,11 +9,13 @@ Namespace WpfPivotGridConditionalFormatting
     ''' </summary>
     Partial Public Class MainWindow
         Inherits Window
-
+        Private salesPersonDataTable As New nwindDataSet.SalesPersonDataTable()
+        Private salesPersonDataAdapter As New SalesPersonTableAdapter()
         Public Sub New()
             InitializeComponent()
+            salesPersonDataAdapter.Fill(salesPersonDataTable)
+            pivotGridControl1.DataSource = salesPersonDataTable
 
-            FilterFieldValues(fieldYear, New Integer(){2016}, FieldFilterType.Included)
 
             ' Creates a new DataBarFormatCondition instance.
             Dim formatRulesDataBar As New DataBarFormatCondition()
@@ -36,21 +39,6 @@ Namespace WpfPivotGridConditionalFormatting
             formatRulesDataBar.PredefinedFormatName = "OrangeGradientDataBar"
 
 
-        End Sub
-
-        Private Sub FilterFieldValues(ByVal field As PivotGridField,
-                                      ByVal filterValues() As Integer,
-                                      ByVal filterType As FieldFilterType)
-            pivotGridControl1.BeginUpdate()
-            Try
-                field.FilterValues.Clear()
-                For Each filterValue As Object In filterValues
-                    field.FilterValues.Add(filterValue)
-                Next filterValue
-            Finally
-                field.FilterValues.FilterType = filterType
-                pivotGridControl1.EndUpdate()
-            End Try
         End Sub
     End Class
 End Namespace
