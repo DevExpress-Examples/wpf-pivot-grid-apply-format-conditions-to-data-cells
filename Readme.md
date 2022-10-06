@@ -4,8 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Pivot Grid for WPF - How to apply format conditions to pivot grid data cells
-
+# Pivot Grid for WPF - How to apply format conditions to data cells
 
 This example shows how to add format conditions to [WPF Pivot Grid Control](https://docs.devexpress.com/WPF/7228/controls-and-libraries/pivot-grid).
 
