@@ -27,7 +27,7 @@ The **Icon Set** conditional formatting is applied to the 'Extended Price' measu
 * [Conditional Formatting](https://docs.devexpress.com/WPF/114038/controls-and-libraries/pivot-grid/data-analysis/conditional-formatting)
 * [Applying Conditional Formatting](https://docs.devexpress.com/WPF/114395/controls-and-libraries/pivot-grid/end-user-capabilities/applying-conditional-formatting)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-pivot-grid-apply-format-conditions-to-data-cells&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-pivot-grid-apply-format-conditions-to-data-cells&~~~was_helpful=no)
 
